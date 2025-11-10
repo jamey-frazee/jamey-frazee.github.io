@@ -56,7 +56,6 @@
       --icon-color: #f1f5f9;
       --glow-color: rgba(241, 245, 249, 0.3);
       --gold: #d4af37;
-      --green: #10b981;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -189,18 +188,18 @@
       background: #d1d5db;
     }
 
-    /* === 24/7 BADGE === */
+    /* === 24/7 BADGE – NOW IN GOLD === */
     .available-badge {
       position: absolute;
       top: 1rem;
       left: 1rem;
-      background: var(--green);
-      color: white;
+      background: var(--gold);           /* Gold background */
+      color: #0f172a;                    /* Dark navy text */
       padding: 6px 12px;
       border-radius: 20px;
       font-size: 0.8rem;
       font-weight: bold;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
       animation: pulse 2s infinite;
     }
     @keyframes pulse {
@@ -329,13 +328,12 @@
 </head>
 <body>
 
-  <!-- 24/7 Badge -->
+  <!-- 24/7 Badge – NOW IN GOLD -->
   <div class="available-badge">Available 24/7</div>
 
   <!-- Animated Phoenix Seal (Right Side) -->
   <div class="phoenix-seal" role="img" aria-label="Vigilant Phoenix Seal – Jamey Frazee">
     <svg viewBox="0 0 100 100" aria-hidden="true">
-      <!-- [Same SVG as before] -->
       <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="3"/>
       <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
       <path d="M20 75 Q30 70 40 75 M60 75 Q70 70 80 75" fill="none" stroke="currentColor" stroke-width="2"/>
@@ -378,12 +376,12 @@
     <button type="submit">Send Message</button>
   </form>
 
-  <!-- === CREDENTIALS UNDER FORM === -->
+  <!-- Credentials -->
   <div class="credentials">
     <p class="guard-license">Registered Security Guard | Hawaii License # GDE-38811</p>
     <p class="pending-note">(PI License Pending – DCCA Application in Process)</p>
 
-    <!-- SMALL CENTERED TRUST BADGE -->
+    <!-- Small Centered Trust Badge -->
     <div class="trust-badge" role="img" aria-label="Confidentiality guarantee">
       <svg class="trust-badge__icon" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.5 16.5l-4-4 1.41-1.41L11 15.67l5.59-5.59L18 11.5l-7 7z"/>
