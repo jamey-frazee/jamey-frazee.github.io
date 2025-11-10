@@ -21,8 +21,8 @@
     :root {
       --bg: #0f172a;
       --text: #e2e8f0;
-      --accent: #f1f5f9;              /* Softer, less bright white */
-      --frame: #475569;              /* Darker, professional frame */
+      --accent: #f1f5f9;              /* Soft off-white */
+      --frame: #475569;              /* Darker frame */
       --badge-bg: #1e293b;
       --badge-text: #f1f5f9;
       --badge-sub: #cbd5e1;
@@ -43,7 +43,6 @@
       padding: 60px 1rem;
     }
 
-    /* NAME: Clean, light, spaced */
     h1 {
       font-size: 2.1rem;
       font-weight: 400;
@@ -61,7 +60,17 @@
 
     p { margin: 1rem 0; font-size: 1.1rem; }
 
-    /* Tagline */
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .guard-license {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
     .tagline {
       font-size: 0.95rem;
       color: #94a3b8;
@@ -70,18 +79,16 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Headshot: Darker frame, better crop */
     img.headshot {
       border-radius: 50%;
       width: 210px;
       height: 240px;
       object-fit: cover;
       object-position: center 30%;
-      border: 4px solid var(--frame);   /* Darker frame */
+      border: 4px solid var(--frame);
       box-shadow: 0 4px 12px var(--shadow);
     }
 
-    /* Trust Badge – ONE ONLY */
     .trust-badge {
       display: inline-flex;
       align-items: center;
@@ -106,7 +113,6 @@
       margin-top: 6px;
     }
 
-    /* Contact Form */
     .contact-form {
       max-width: 420px;
       margin: 2rem auto;
@@ -149,7 +155,8 @@
   <!-- Hero -->
   <h1>Jamey Frazee</h1>
   <img src="headshot.jpg" alt="Jamey Frazee - Private Investigator in Honolulu" class="headshot">
-  <p>Licensed Private Investigator | Honolulu, Hawaii</p>
+  <p class="subtitle">Licensed Private Investigator | Honolulu, Hawaii</p>
+  <p class="guard-license">Registered Security Guard | Hawaii License # GDE-38811</p>
   <p class="tagline">Serving All Islands</p>
 
   <!-- Trust Badge – ONLY ONE -->
