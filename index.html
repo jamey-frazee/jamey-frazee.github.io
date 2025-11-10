@@ -31,7 +31,7 @@
       --input-bg: #1e293b;
       --input-border: #334155;
       --input-placeholder: #94a3b8;
-      --icon-color: #f1f5f9; /* Soft white for icon */
+      --icon-color: #f1f5f9;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -61,7 +61,6 @@
 
     p { margin: 1rem 0; font-size: 1.1rem; }
 
-    /* Subtitle & Tagline */
     .subtitle {
       font-size: 1.1rem;
       color: var(--text);
@@ -120,7 +119,6 @@
       background: #d1d5db;
     }
 
-    /* === CREDENTIALS BLOCK UNDER FORM === */
     .credentials {
       max-width: 500px;
       margin: 3rem auto 0;
@@ -166,56 +164,71 @@
       margin-top: 6px;
     }
 
-    /* === COOL BADGE: Eye of Truth Icon – Fixed Right Side === */
-    .cool-badge {
+    /* === OFFICIAL HAWAII SEAL + JF BADGE – Fixed Right === */
+    .seal-badge {
       position: fixed;
       top: 1rem;
       right: 1rem;
-      width: 48px;
-      height: 48px;
+      width: 64px;
+      height: 64px;
       background: var(--badge-bg);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px var(--shadow);
-      cursor: pointer;
+      box-shadow: 0 6px 20px var(--shadow);
+      cursor: default;
       transition: all .3s ease;
       z-index: 1000;
-      border: 2px solid var(--frame);
+      border: 3px solid var(--frame);
     }
-    .cool-badge:hover {
-      transform: scale(1.1);
+    .seal-badge:hover {
+      transform: scale(1.15);
       background: var(--accent);
-      box-shadow: 0 0 20px rgba(241, 245, 249, 0.3);
+      box-shadow: 0 0 32px rgba(241, 245, 249, 0.5);
     }
-    .cool-badge svg {
-      width: 24px;
-      height: 24px;
-      fill: var(--icon-color);
-      stroke: var(--icon-color);
-      stroke-width: 1;
-    }
-    .cool-badge:hover svg {
-      fill: var(--bg);
-      stroke: var(--bg);
+    .seal-badge svg {
+      width: 46px;
+      height: 46px;
     }
   </style>
 </head>
 <body>
 
-  <!-- === COOL BADGE: Fixed Right Side === -->
-  <div class="cool-badge" role="img" aria-label="Eye of Truth – Discreet Observation" title="Sharp Eyes, Silent Service">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <!-- Magnifying Glass Handle -->
-      <circle cx="18" cy="18" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
-      <!-- Handle Line -->
-      <line x1="20.5" y1="20.5" x2="22" y2="22" stroke="currentColor" stroke-width="2"/>
-      <!-- Eye in Lens -->
-      <ellipse cx="12" cy="12" rx="4" ry="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <circle cx="12" cy="12" r="1" fill="currentColor"/>
-      <!-- Subtle Iris Detail -->
-      <circle cx="12" cy="12" r="0.5" fill="none" stroke="currentColor" stroke-width="1"/>
+  <!-- === OFFICIAL HAWAII SEAL + JF INITIALS === -->
+  <div class="seal-badge" role="img" aria-label="Official Hawaii State Seal – Jamey Frazee" title="Jamey Frazee | Hawaii Licensed Professional">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <!-- Outer Circle (Seal Border) -->
+      <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="4"/>
+
+      <!-- Inner Shield -->
+      <path d="M50 18 L74 35 L74 65 L50 82 L26 65 L26 35 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+
+      <!-- Puloulou (Royal Staffs) -->
+      <line x1="32" y1="28" x2="32" y2="72" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="68" y1="28" x2="68" y2="72" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="32" cy="25" r="3.5" fill="currentColor"/>
+      <circle cx="68" cy="25" r="3.5" fill="currentColor"/>
+
+      <!-- Kamehameha Crown -->
+      <path d="M38 38 Q50 32 62 38 L60 42 Q50 36 40 42 Z" fill="currentColor"/>
+
+      <!-- Phoenix (Rising Bird) -->
+      <path d="M50 50 Q45 45 48 40 Q50 38 52 40 Q55 45 50 50 M48 52 Q46 55 48 58 M52 52 Q54 55 52 58" 
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+
+      <!-- Eight Taros (Leaves at Base) -->
+      <path d="M30 70 Q35 75 40 70 M35 68 Q37 72 39 68 M60 70 Q65 75 70 70 M61 68 Q63 72 65 68" 
+            fill="none" stroke="currentColor" stroke-width="2"/>
+
+      <!-- JF Initials – Centered in Shield -->
+      <text x="50" y="58" font-family="Merriweather, Georgia, serif" font-size="20" font-weight="700" 
+            fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="0.5">
+        JF
+      </text>
+
+      <!-- Bottom Ribbon (Ulu) -->
+      <path d="M26 72 Q50 78 74 72" fill="none" stroke="currentColor" stroke-width="2.5"/>
     </svg>
   </div>
 
@@ -235,23 +248,22 @@
   </form>
 
   <!-- === CREDENTIALS UNDER FORM === -->
-<div class="credentials">
-  <p class="guard-license">Registered Security Guard | Hawaii License # GDE-38811</p>
-  <p class="pending-note" style="font-size: 0.85rem; color: #94a3b8; font-style: italic; margin: 0.5rem 0;">PI License Pending (Hawaii DCCA Application in Process)</p>
+  <div class="credentials">
+    <p class="guard-license">Registered Security Guard | Hawaii License # GDE-38811</p>
 
-  <div class="trust-badge" role="img" aria-label="Confidentiality guarantee">
-    <svg class="trust-badge__icon" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.5 16.5l-4-4 1.41-1.41L11 15.67l5.59-5.59L18 11.5l-7 7z"/>
-    </svg>
-    <div>
-      <span class="trust-badge__main">Confidentiality Enforced by Law & Protocol</span>
-      <span class="trust-badge__sub">Licensed • Encrypted • Zero Retention Post-Closure</span>
+    <div class="trust-badge" role="img" aria-label="Confidentiality guarantee">
+      <svg class="trust-badge__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.5 16.5l-4-4 1.41-1.41L11 15.67l5.59-5.59L18 11.5l-7 7z"/>
+      </svg>
+      <div>
+        <span class="trust-badge__main">Confidentiality Enforced by Law & Protocol</span>
+        <span class="trust-badge__sub">Licensed • Encrypted • Zero Retention Post-Closure</span>
+      </div>
     </div>
+    <p class="trust-badge__footnote">
+      *Subject to lawful court order (HRS §626-1). Full policy available on request.
+    </p>
   </div>
-  <p class="trust-badge__footnote">
-    *Subject to lawful court order (HRS §626-1). Full policy available on request.
-  </p>
-</div>
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9N2K8L5Q7X"></script>
