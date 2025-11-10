@@ -1,0 +1,9 @@
+# 1. Create the file
+cat > .gitignore << 'EOF'
+# (paste the content above)
+EOF
+
+# 2. Add & commit
+git add .gitignore
+git commit -m "Add .gitignore – protect client data & keys"
+git push
