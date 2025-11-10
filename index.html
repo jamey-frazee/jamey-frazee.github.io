@@ -70,3 +70,154 @@
   <p class="trust-badge__footnote">*Subject to lawful court order (HRS §626-1). Full policy on request.</p>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confidential Investigations | Trust Badge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --text: #1e293b;
+      --badge-bg: #0f172a;
+      --badge-text: #e2e8f0;
+      --badge-sub: #94a3b8;
+      --shadow: rgba(0,0,0,0.15);
+      --footnote: #64748b;
+    }
+    [data-theme="dark"] {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --badge-bg: #1e293b;
+      --badge-text: #f1f5f9;
+      --badge-sub: #cbd5e1;
+      --shadow: rgba(0,0,0,0.3);
+      --footnote: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Merriweather', Georgia, serif;
+      line-height: 1.6;
+      transition: background 0.3s ease, color 0.3s ease;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    /* Trust Badge */
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px var(--shadow);
+      max-width: fit-content;
+      margin: 1.5rem auto;
+    }
+    .trust-badge__icon { width: 20px; height: 20px; fill: var(--badge-sub); }
+    .trust-badge__main { display: block; font-size: 1rem; }
+    .trust-badge__sub { display: block; font-size: 0.75rem; color: var(--badge-sub); margin-top: 2px; }
+    .trust-badge__footnote {
+      font-size: 0.625rem;
+      color: var(--footnote);
+      font-style: italic;
+      margin-top: 6px;
+    }
+
+    /* Dark Mode Toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px var(--shadow);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .theme-toggle:hover { transform: scale(1.1); }
+    .theme-toggle:focus { outline: 2px solid #60a5fa; outline-offset: 2px; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dark Mode Toggle -->
+  <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
+    <span id="toggleIcon">Dark Mode</span>
+    <span class="sr-only">Toggle Dark Mode</span>
+  </button>
+
+  <!-- Content -->
+  <h1>Confidential Investigations</h1>
+  <p>Licensed private investigative services across Hawaii and the mainland.</p>
+
+  <!-- Trust Badge -->
+  <div class="trust-badge" role="img" aria-label="Confidentiality guarantee">
+    <svg class="trust-badge__icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.5 16.5l-4-4 1.41-1.41L11 15.67l5.59-5.59L18 11.5l-7 7z"/>
+    </svg>
+    <div>
+      <span class="trust-badge__main">Confidentiality Enforced by Law &amp; Protocol</span>
+      <span class="trust-badge__sub">Licensed • Encrypted • Zero Retention Post-Closure</span>
+    </div>
+  </div>
+
+  <p class="trust-badge__footnote">
+    *Subject to lawful court order (HRS §626-1). Full policy available on request.
+  </p>
+
+  <!-- Dark Mode Script -->
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const icon = document.getElementById('toggleIcon');
+    const html = document.documentElement;
+
+    // Set initial state
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+    updateIcon(currentTheme);
+
+    // Toggle function
+    toggle.addEventListener('click', () => {
+      const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateIcon(newTheme);
+    });
+
+    function updateIcon(theme) {
+      icon.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+    }
+  </script>
+</body>
+</html>
