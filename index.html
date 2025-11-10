@@ -31,6 +31,7 @@
       --input-bg: #1e293b;
       --input-border: #334155;
       --input-placeholder: #94a3b8;
+      --icon-color: #f1f5f9; /* Soft white for icon */
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -164,9 +165,59 @@
       font-style: italic;
       margin-top: 6px;
     }
+
+    /* === COOL BADGE: Eye of Truth Icon – Fixed Right Side === */
+    .cool-badge {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      width: 48px;
+      height: 48px;
+      background: var(--badge-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px var(--shadow);
+      cursor: pointer;
+      transition: all .3s ease;
+      z-index: 1000;
+      border: 2px solid var(--frame);
+    }
+    .cool-badge:hover {
+      transform: scale(1.1);
+      background: var(--accent);
+      box-shadow: 0 0 20px rgba(241, 245, 249, 0.3);
+    }
+    .cool-badge svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--icon-color);
+      stroke: var(--icon-color);
+      stroke-width: 1;
+    }
+    .cool-badge:hover svg {
+      fill: var(--bg);
+      stroke: var(--bg);
+    }
   </style>
 </head>
 <body>
+
+  <!-- === COOL BADGE: Fixed Right Side === -->
+  <div class="cool-badge" role="img" aria-label="Eye of Truth – Discreet Observation" title="Sharp Eyes, Silent Service">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <!-- Magnifying Glass Handle -->
+      <circle cx="18" cy="18" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+      <!-- Handle Line -->
+      <line x1="20.5" y1="20.5" x2="22" y2="22" stroke="currentColor" stroke-width="2"/>
+      <!-- Eye in Lens -->
+      <ellipse cx="12" cy="12" rx="4" ry="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="12" cy="12" r="1" fill="currentColor"/>
+      <!-- Subtle Iris Detail -->
+      <circle cx="12" cy="12" r="0.5" fill="none" stroke="currentColor" stroke-width="1"/>
+    </svg>
+  </div>
 
   <!-- Hero -->
   <h1>Jamey Frazee</h1>
