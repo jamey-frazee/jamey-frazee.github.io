@@ -172,11 +172,11 @@
       margin-top: 6px;
     }
 
-    /* === ALWAYS-PULSING VIGILANT PHOENIX SEAL + TOOLTIP === */
+    /* === VIGILANT PHOENIX SEAL – RIGHT SIDE, NO TOOLTIP, ALWAYS PULSING === */
     .phoenix-seal {
       position: fixed;
       top: 1rem;
-      right: 1rem;
+      right: 1rem; /* FIXED: Back on the right */
       width: 68px;
       height: 68px;
       background: var(--badge-bg);
@@ -184,58 +184,21 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 
-        0 0 16px var(--glow-color),
-        0 0 32px var(--glow-color),
-        0 6px 24px var(--shadow);
+      box-shadow: 0 0 16px var(--glow-color), 0 6px 24px var(--shadow);
       cursor: default;
-      transition: all .3s ease;
+      transition: transform .3s ease;
       z-index: 1000;
       border: 3px solid var(--gold);
       animation: pulse-glow 2.5s infinite alternate;
     }
 
     @keyframes pulse-glow {
-      0% {
-        box-shadow: 
-          0 0 16px var(--glow-color),
-          0 0 32px var(--glow-color),
-          0 6px 24px var(--shadow);
-      }
-      100% {
-        box-shadow: 
-          0 0 24px var(--glow-color),
-          0 0 48px var(--glow-color),
-          0 8px 30px var(--shadow);
-      }
+      0% { box-shadow: 0 0 16px var(--glow-color), 0 6px 24px var(--shadow); }
+      100% { box-shadow: 0 0 24px var(--glow-color), 0 8px 30px var(--shadow); }
     }
 
     .phoenix-seal:hover {
       transform: scale(1.2);
-      background: var(--accent);
-      box-shadow: 
-        0 0 28px var(--glow-color),
-        0 0 56px var(--glow-color),
-        0 0 90px var(--glow-color),
-        0 8px 30px var(--shadow);
-      animation: pulse-glow-intense 1.8s infinite alternate;
-    }
-
-    @keyframes pulse-glow-intense {
-      0% {
-        box-shadow: 
-          0 0 28px var(--glow-color),
-          0 0 56px var(--glow-color),
-          0 0 90px var(--glow-color),
-          0 8px 30px var(--shadow);
-      }
-      100% {
-        box-shadow: 
-          0 0 36px var(--glow-color),
-          0 0 72px var(--glow-color),
-          0 0 110px var(--glow-color),
-          0 10px 36px var(--shadow);
-      }
     }
 
     .phoenix-seal svg {
@@ -243,52 +206,16 @@
       height: 50px;
     }
 
-    /* === TOOLTIP: "Vigilant. Discreet. Effective." === */
-    .phoenix-seal {
-      position: relative;
-    }
-    .phoenix-seal::after {
-      content: "Vigilant. Discreet. Effective.";
-      position: absolute;
-      top: 50%;
-      left: -160px;
-      transform: translateY(-50%);
-      background: var(--badge-bg);
-      color: var(--badge-text);
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      white-space: nowrap;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity .3s ease, visibility .3s ease;
-      box-shadow: 0 4px 12px var(--shadow);
-      z-index: 1001;
-      pointer-events: none;
-    }
+    /* NO TOOLTIP ON HOVER */
+    .phoenix-seal::after,
     .phoenix-seal::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: -8px;
-      transform: translateY(-50%);
-      border: 8px solid transparent;
-      border-left-color: var(--badge-bg);
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity .3s ease, visibility .3s ease;
-    }
-    .phoenix-seal:hover::after,
-    .phoenix-seal:hover::before {
-      opacity: 1;
-      visibility: visible;
+      display: none !important;
     }
   </style>
 </head>
 <body>
 
-  <!-- === ALWAYS-PULSING VIGILANT PHOENIX SEAL + TOOLTIP === -->
+  <!-- === VIGILANT PHOENIX SEAL – RIGHT SIDE, ALWAYS PULSING, NO HOVER TEXT === -->
   <div class="phoenix-seal" role="img" aria-label="Vigilant Phoenix Seal – Jamey Frazee">
     <svg viewBox="0 0 100 100" aria-hidden="true">
       <!-- Outer Ornate Circle -->
@@ -305,7 +232,7 @@
 
       <!-- Phoenix Body & Tail -->
       <path d="M50 60 Q48 65 46 70 Q50 75 54 70 Q52 65 50 60" fill="currentColor"/>
-      <path d="M46 68 Q44 72  enfoc42 75 M54 68 Q56 72 58 75" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M46 68 Q44 72 42 75 M54 68 Q56 72 58 75" fill="none" stroke="currentColor" stroke-width="2"/>
 
       <!-- Magnifying Glass Lens (Iris) -->
       <circle cx="50" cy="45" r="12" fill="none" stroke="var(--gold)" stroke-width="3"/>
@@ -323,9 +250,7 @@
 
       <!-- Ribbon Banner -->
       <path d="M30 88 Q50 92 70 88 L68 85 Q50 89 32 85 Z" fill="var(--badge-bg)" stroke="currentColor" stroke-width="1.5"/>
-      <text x=" |
-
-50" y="88" font-family="Merriweather, Georgia, serif" font-size="7" fill="currentColor" 
+      <text x="50" y="88" font-family="Merriweather, Georgia, serif" font-size="7" fill="currentColor" 
             text-anchor="middle" dominant-baseline="middle">
         VIGILANT
       </text>
