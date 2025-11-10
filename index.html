@@ -6,9 +6,9 @@
   <title>Jamey Frazee - Licensed Private Investigator | Honolulu, Hawaii</title>
 
   <!-- SEO & Social -->
-  <meta name="description" content="Jamey Frazee - Licensed Private Investigator in Honolulu, Hawaii. Surveillance, background checks, missing persons. Serving all islands.">
+  <meta name="description" content="Jamey Frazee - Licensed Private Investigator in Honolulu, Hawaii. Surveillance, background checks, missing persons. Serving all islands and mainland U.S.">
   <meta property="og:title" content="Jamey Frazee - Private Investigator | Honolulu">
-  <meta property="og:description" content="Discreet, effective investigations across Hawaii. 24/7 availability.">
+  <meta property="og:description" content="Discreet, effective investigations across Hawaii and mainland U.S. 24/7 availability.">
   <meta property="og:image" content="https://jameyfrazee.com/headshot.jpg">
   <meta property="og:url" content="https://jameyfrazee.com">
   <meta property="og:type" content="website">
@@ -18,7 +18,7 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-  <!-- Structured Data (Google Rich Results) -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -31,10 +31,8 @@
       "addressRegion": "HI",
       "addressCountry": "US"
     },
-    "telephone": "+1-808-555-0199",
     "email": "contact@jameyfrazee.com",
-    "url": "https://jameyfrazee.com",
-    "sameAs": ["https://x.com/JamKaiOne"]
+    "url": "https://jameyfrazee.com"
   }
   </script>
 
@@ -250,7 +248,38 @@
       margin: 0.5rem 0;
     }
 
-    /* === FOOTER === */
+    /* === SMALL CENTERED TRUST BADGE === */
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: .75rem;
+      font-weight: 600;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px var(--shadow);
+      max-width: fit-content;
+      margin: 1rem auto;
+    }
+    .trust-badge__icon {
+      width: 14px; height: 14px; fill: var(--badge-sub);
+    }
+    .trust-badge__main {
+      display: block; font-size: 0.8rem;
+    }
+    .trust-badge__sub {
+      display: block; font-size: .6rem; color: var(--badge-sub); margin-top: 1px;
+    }
+    .trust-badge__footnote {
+      font-size: .55rem;
+      color: var(--footnote);
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    /* === FOOTER (NO PHONE) === */
     footer {
       margin-top: 3rem;
       padding: 2rem 1rem;
@@ -266,7 +295,7 @@
       text-decoration: underline;
     }
 
-    /* === ANIMATED PHOENIX SEAL – RIGHT SIDE, NO TOOLTIP === */
+    /* === ANIMATED PHOENIX SEAL – RIGHT SIDE === */
     .phoenix-seal {
       position: fixed;
       top: 1rem;
@@ -303,7 +332,7 @@
   <!-- 24/7 Badge -->
   <div class="available-badge">Available 24/7</div>
 
-  <!-- Animated Phoenix Seal (Right Side, No Tooltip) -->
+  <!-- Animated Phoenix Seal (Right Side) -->
   <div class="phoenix-seal" role="img" aria-label="Vigilant Phoenix Seal – Jamey Frazee">
     <svg viewBox="0 0 100 100" aria-hidden="true">
       <!-- [Same SVG as before] -->
@@ -328,13 +357,13 @@
   <h1>Jamey Frazee</h1>
   <img src="headshot.jpg" alt="Jamey Frazee - Private Investigator in Honolulu" class="headshot">
   <p class="subtitle">Licensed Private Investigator | Honolulu, Hawaii</p>
-  <p class="tagline">Serving All Islands</p>
+  <p class="tagline">Serving All Islands + Mainland U.S.</p>
 
   <!-- Services -->
   <div class="services">
     <div class="service-card"><h3>Surveillance</h3><p>Discreet, mobile, and fixed-position</p></div>
     <div class="service-card"><h3>Background Checks</h3><p>DMV, criminal, financial, social</p></div>
-    <div class="service-card"><h3>Missing Persons</h3><p>Skip tracing across islands</p></div>
+    <div class="service-card"><h3>Missing Persons</h3><p>Skip tracing across islands and mainland</p></div>
   </div>
 
   <!-- Client Portal -->
@@ -349,18 +378,19 @@
     <button type="submit">Send Message</button>
   </form>
 
-  <!-- Credentials -->
+  <!-- === CREDENTIALS UNDER FORM === -->
   <div class="credentials">
     <p class="guard-license">Registered Security Guard | Hawaii License # GDE-38811</p>
     <p class="pending-note">(PI License Pending – DCCA Application in Process)</p>
 
+    <!-- SMALL CENTERED TRUST BADGE -->
     <div class="trust-badge" role="img" aria-label="Confidentiality guarantee">
       <svg class="trust-badge__icon" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.5 16.5l-4-4 1.41-1.41L11 15.67l5.59-5.59L18 11.5l-7 7z"/>
       </svg>
       <div>
-        <span class="trust-badge__main">Confidentiality Enforced by Law & Protocol</span>
-        <span class="trust-badge__sub">Licensed • Encrypted • Zero Retention Post-Closure</span>
+        <span class="trust-badge__main">Confidentiality Enforced</span>
+        <span class="trust-badge__sub">Licensed • Encrypted</span>
       </div>
     </div>
     <p class="trust-badge__footnote">
@@ -368,11 +398,10 @@
     </p>
   </div>
 
-  <!-- Footer -->
+  <!-- Footer (No Phone) -->
   <footer>
     <p>© 2025 Jamey Frazee. All rights reserved.</p>
     <p>
-      <a href="tel:+18085550199">+1 (808) 555-0199</a> • 
       <a href="mailto:contact@jameyfrazee.com">contact@jameyfrazee.com</a> • 
       <a href="https://cca.hawaii.gov/pvl/boards/private_detective/" target="_blank">Verify License</a>
     </p>
