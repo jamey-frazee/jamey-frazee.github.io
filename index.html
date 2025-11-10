@@ -3,16 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jamey Frazee - Licensed Private Investigator | Honolulu</title>
+  <title>Jamey Frazee - Licensed Private Investigator | Honolulu, Hawaii</title>
 
   <!-- SEO & Social -->
-  <meta name="description" content="Jamey Frazee - Licensed Private Investigator in Honolulu, Hawaii. Surveillance, background checks, missing persons.">
-  <meta property="og:title" content="Jamey Frazee - Private Investigator">
-  <meta property="og:description" content="Licensed PI serving all Hawaiian islands. Absolute discretion.">
+  <meta name="description" content="Jamey Frazee - Licensed Private Investigator in Honolulu, Hawaii. Surveillance, background checks, missing persons. Serving all islands.">
+  <meta property="og:title" content="Jamey Frazee - Private Investigator | Honolulu">
+  <meta property="og:description" content="Discreet, effective investigations across Hawaii. 24/7 availability.">
   <meta property="og:image" content="https://jameyfrazee.com/headshot.jpg">
   <meta property="og:url" content="https://jameyfrazee.com">
   <meta property="og:type" content="website">
   <link rel="canonical" href="https://jameyfrazee.com">
+
+  <!-- Favicon & Apple Touch Icon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Structured Data (Google Rich Results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jamey Frazee",
+    "jobTitle": "Private Investigator",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Honolulu",
+      "addressRegion": "HI",
+      "addressCountry": "US"
+    },
+    "telephone": "+1-808-555-0199",
+    "email": "contact@jameyfrazee.com",
+    "url": "https://jameyfrazee.com",
+    "sameAs": ["https://x.com/JamKaiOne"]
+  }
+  </script>
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
@@ -34,6 +58,7 @@
       --icon-color: #f1f5f9;
       --glow-color: rgba(241, 245, 249, 0.3);
       --gold: #d4af37;
+      --green: #10b981;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,7 +68,7 @@
       font-family: 'Merriweather', Georgia, serif;
       line-height: 1.7;
       text-align: center;
-      padding: 60px 1rem 80px;
+      padding: 60px 1rem 120px;
       min-height: 100vh;
     }
 
@@ -53,12 +78,22 @@
       letter-spacing: 1.5px;
       margin-bottom: 1.8rem;
       color: var(--accent);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
     }
 
     h2 {
       margin: 3rem 0 1.5rem;
       color: var(--accent);
       font-weight: 600;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards 0.2s;
+    }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
     }
 
     p { margin: 1rem 0; font-size: 1.1rem; }
@@ -83,11 +118,46 @@
       object-position: center 30%;
       border: 4px solid var(--frame);
       box-shadow: 0 4px 12px var(--shadow);
+      opacity: 0;
+      transform: scale(0.9);
+      animation: zoomIn 0.8s forwards 0.4s;
+    }
+
+    @keyframes zoomIn {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* === SERVICES SECTION === */
+    .services {
+      max-width: 600px;
+      margin: 3rem auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      opacity: 0;
+      animation: fadeInUp 0.8s forwards 0.6s;
+    }
+    .service-card {
+      background: var(--badge-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px var(--shadow);
+      transition: transform .2s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+    }
+    .service-card h3 {
+      color: var(--accent);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
     }
 
     .contact-form {
       max-width: 420px;
       margin: 2rem auto;
+      opacity: 0;
+      animation: fadeInUp 0.8s forwards 0.8s;
     }
     .contact-form input,
     .contact-form textarea {
@@ -121,9 +191,46 @@
       background: #d1d5db;
     }
 
+    /* === 24/7 BADGE === */
+    .available-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--green);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* === CLIENT PORTAL BUTTON === */
+    .portal-btn {
+      display: inline-block;
+      margin: 1.5rem auto;
+      padding: 12px 24px;
+      background: var(--gold);
+      color: #0f172a;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px var(--shadow);
+      transition: all .2s;
+    }
+    .portal-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px var(--shadow);
+    }
+
     .credentials {
       max-width: 500px;
-      margin: 3rem auto 0;
+      margin: 3rem auto 2rem;
       padding: 1.5rem;
       border-top: 1px solid #334155;
       font-size: 0.95rem;
@@ -142,41 +249,28 @@
       font-style: italic;
       margin: 0.5rem 0;
     }
-    .credentials .trust-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
-      background: var(--badge-bg);
-      color: var(--badge-text);
-      font-size: .9375rem;
-      font-weight: 600;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px var(--shadow);
-      max-width: fit-content;
-      margin: 1.2rem auto;
+
+    /* === FOOTER === */
+    footer {
+      margin-top: 3rem;
+      padding: 2rem 1rem;
+      border-top: 1px solid #334155;
+      font-size: 0.9rem;
+      color: #94a3b8;
     }
-    .credentials .trust-badge__icon {
-      width: 20px; height: 20px; fill: var(--badge-sub);
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
     }
-    .credentials .trust-badge__main {
-      display: block; font-size: 1rem;
-    }
-    .credentials .trust-badge__sub {
-      display: block; font-size: .75rem; color: var(--badge-sub); margin-top: 2px;
-    }
-    .credentials .trust-badge__footnote {
-      font-size: .625rem;
-      color: var(--footnote);
-      font-style: italic;
-      margin-top: 6px;
+    footer a:hover {
+      text-decoration: underline;
     }
 
-    /* === VIGILANT PHOENIX SEAL – RIGHT SIDE, NO TOOLTIP, ALWAYS PULSING === */
+    /* === ANIMATED PHOENIX SEAL – RIGHT SIDE, NO TOOLTIP === */
     .phoenix-seal {
       position: fixed;
       top: 1rem;
-      right: 1rem; /* FIXED: Back on the right */
+      right: 1rem;
       width: 68px;
       height: 68px;
       background: var(--badge-bg);
@@ -201,59 +295,32 @@
       transform: scale(1.2);
     }
 
-    .phoenix-seal svg {
-      width: 50px;
-      height: 50px;
-    }
-
-    /* NO TOOLTIP ON HOVER */
-    .phoenix-seal::after,
-    .phoenix-seal::before {
-      display: none !important;
-    }
+    .phoenix-seal svg { width: 50px; height: 50px; }
   </style>
 </head>
 <body>
 
-  <!-- === VIGILANT PHOENIX SEAL – RIGHT SIDE, ALWAYS PULSING, NO HOVER TEXT === -->
+  <!-- 24/7 Badge -->
+  <div class="available-badge">Available 24/7</div>
+
+  <!-- Animated Phoenix Seal (Right Side, No Tooltip) -->
   <div class="phoenix-seal" role="img" aria-label="Vigilant Phoenix Seal – Jamey Frazee">
     <svg viewBox="0 0 100 100" aria-hidden="true">
-      <!-- Outer Ornate Circle -->
+      <!-- [Same SVG as before] -->
       <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="3"/>
       <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
-
-      <!-- Laurel Wreath Base -->
       <path d="M20 75 Q30 70 40 75 M60 75 Q70 70 80 75" fill="none" stroke="currentColor" stroke-width="2"/>
       <path d="M25 72 Q30 68 35 72 M65 72 Q70 68 75 72" fill="none" stroke="currentColor" stroke-width="1.5"/>
-
-      <!-- Phoenix Wings -->
-      <path d="M35 55 Q30 45 25 40 Q30 38 35 42 M65 55 Q70 45 75 40 Q70 38 65 42" 
-            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-
-      <!-- Phoenix Body & Tail -->
+      <path d="M35 55 Q30 45 25 40 Q30 38 35 42 M65 55 Q70 45 75 40 Q70 38 65 42" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
       <path d="M50 60 Q48 65 46 70 Q50 75 54 70 Q52 65 50 60" fill="currentColor"/>
       <path d="M46 68 Q44 72 42 75 M54 68 Q56 72 58 75" fill="none" stroke="currentColor" stroke-width="2"/>
-
-      <!-- Magnifying Glass Lens (Iris) -->
       <circle cx="50" cy="45" r="12" fill="none" stroke="var(--gold)" stroke-width="3"/>
       <circle cx="50" cy="45" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
-
-      <!-- All-Seeing Eye (Pupil) -->
       <circle cx="50" cy="45" r="6" fill="currentColor"/>
       <circle cx="50" cy="45" r="3" fill="var(--gold)"/>
-
-      <!-- JF Initials – Bold in Shield -->
-      <text x="50" y="80" font-family="Merriweather, Georgia, serif" font-size="18" font-weight="700" 
-            fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">
-        JF
-      </text>
-
-      <!-- Ribbon Banner -->
+      <text x="50" y="80" font-family="Merriweather, Georgia, serif" font-size="18" font-weight="700" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">JF</text>
       <path d="M30 88 Q50 92 70 88 L68 85 Q50 89 32 85 Z" fill="var(--badge-bg)" stroke="currentColor" stroke-width="1.5"/>
-      <text x="50" y="88" font-family="Merriweather, Georgia, serif" font-size="7" fill="currentColor" 
-            text-anchor="middle" dominant-baseline="middle">
-        VIGILANT
-      </text>
+      <text x="50" y="88" font-family="Merriweather, Georgia, serif" font-size="7" fill="currentColor" text-anchor="middle" dominant-baseline="middle">VIGILANT</text>
     </svg>
   </div>
 
@@ -263,7 +330,17 @@
   <p class="subtitle">Licensed Private Investigator | Honolulu, Hawaii</p>
   <p class="tagline">Serving All Islands</p>
 
-  <!-- Contact Form -->
+  <!-- Services -->
+  <div class="services">
+    <div class="service-card"><h3>Surveillance</h3><p>Discreet, mobile, and fixed-position</p></div>
+    <div class="service-card"><h3>Background Checks</h3><p>DMV, criminal, financial, social</p></div>
+    <div class="service-card"><h3>Missing Persons</h3><p>Skip tracing across islands</p></div>
+  </div>
+
+  <!-- Client Portal -->
+  <a href="https://portal.jameyfrazee.com" class="portal-btn" target="_blank">Secure Client Portal</a>
+
+  <!-- Contact -->
   <h2>Contact Me</h2>
   <form action="https://formspree.io/f/mvgdooqg" method="POST" class="contact-form">
     <input type="text" name="name" placeholder="Your Name" required>
@@ -272,7 +349,7 @@
     <button type="submit">Send Message</button>
   </form>
 
-  <!-- === CREDENTIALS UNDER FORM === -->
+  <!-- Credentials -->
   <div class="credentials">
     <p class="guard-license">Registered Security Guard | Hawaii License # GDE-38811</p>
     <p class="pending-note">(PI License Pending – DCCA Application in Process)</p>
@@ -290,6 +367,16 @@
       *Subject to lawful court order (HRS §626-1). Full policy available on request.
     </p>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Jamey Frazee. All rights reserved.</p>
+    <p>
+      <a href="tel:+18085550199">+1 (808) 555-0199</a> • 
+      <a href="mailto:contact@jameyfrazee.com">contact@jameyfrazee.com</a> • 
+      <a href="https://cca.hawaii.gov/pvl/boards/private_detective/" target="_blank">Verify License</a>
+    </p>
+  </footer>
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9N2K8L5Q7X"></script>
