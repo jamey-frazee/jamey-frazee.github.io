@@ -32,6 +32,7 @@
       --input-border: #334155;
       --input-placeholder: #94a3b8;
       --icon-color: #f1f5f9;
+      --glow-color: rgba(241, 245, 249, 0.4);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -95,7 +96,7 @@
       background: var(--input-bg);
       color: var(--text);
       border: 1px solid var(--input-border);
-      border-radius: 6px;
+     : 6px;
       font-size: 16px;
       font-family: inherit;
     }
@@ -164,7 +165,7 @@
       margin-top: 6px;
     }
 
-    /* === OFFICIAL HAWAII SEAL + JF BADGE – Fixed Right === */
+    /* === ANIMATED GLOW BADGE – Fixed Right === */
     .seal-badge {
       position: fixed;
       top: 1rem;
@@ -183,10 +184,33 @@
       border: 3px solid var(--frame);
     }
     .seal-badge:hover {
-      transform: scale(1.15);
+      transform: scale(1.18);
       background: var(--accent);
-      box-shadow: 0 0 32px rgba(241, 245, 249, 0.5);
+      box-shadow: 
+        0 0 20px var(--glow-color),
+        0 0 40px var(--glow-color),
+        0 0 60px var(--glow-color),
+        0 6px 20px var(--shadow);
+      animation: pulse-glow 1.5s infinite alternate;
     }
+
+    @keyframes pulse-glow {
+      0% {
+        box-shadow: 
+          0 0 20px var(--glow-color),
+          0 0 40px var(--glow-color),
+          0 0 60px var(--glow-color),
+          0 6px 20px var(--shadow);
+      }
+      100% {
+        box-shadow: 
+          0 0 25px var(--glow-color),
+          0 0 50px var(--glow-color),
+          0 0 75px var(--glow-color),
+          0 8px 24px var(--shadow);
+      }
+    }
+
     .seal-badge svg {
       width: 46px;
       height: 46px;
@@ -195,7 +219,7 @@
 </head>
 <body>
 
-  <!-- === OFFICIAL HAWAII SEAL + JF INITIALS === -->
+  <!-- === ANIMATED GLOW: Hawaii Seal + JF === -->
   <div class="seal-badge" role="img" aria-label="Official Hawaii State Seal – Jamey Frazee" title="Jamey Frazee | Hawaii Licensed Professional">
     <svg viewBox="0 0 100 100" aria-hidden="true">
       <!-- Outer Circle (Seal Border) -->
