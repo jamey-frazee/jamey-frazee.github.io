@@ -32,7 +32,8 @@
       --input-border: #334155;
       --input-placeholder: #94a3b8;
       --icon-color: #f1f5f9;
-      --glow-color: rgba(241, 245, 249, 0.4);
+      --glow-color: rgba(241, 245, 249, 0.3);
+      --gold: #d4af37;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -96,7 +97,7 @@
       background: var(--input-bg);
       color: var(--text);
       border: 1px solid var(--input-border);
-     : 6px;
+      border-radius: 6px;
       font-size: 16px;
       font-family: inherit;
     }
@@ -135,6 +136,12 @@
       color: #94a3b8;
       font-style: italic;
     }
+    .credentials .pending-note {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      font-style: italic;
+      margin: 0.5rem 0;
+    }
     .credentials .trust-badge {
       display: inline-flex;
       align-items: center;
@@ -165,94 +172,163 @@
       margin-top: 6px;
     }
 
-    /* === ANIMATED GLOW BADGE – Fixed Right === */
-    .seal-badge {
+    /* === ALWAYS-PULSING VIGILANT PHOENIX SEAL + TOOLTIP === */
+    .phoenix-seal {
       position: fixed;
       top: 1rem;
       right: 1rem;
-      width: 64px;
-      height: 64px;
+      width: 68px;
+      height: 68px;
       background: var(--badge-bg);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 20px var(--shadow);
+      box-shadow: 
+        0 0 16px var(--glow-color),
+        0 0 32px var(--glow-color),
+        0 6px 24px var(--shadow);
       cursor: default;
       transition: all .3s ease;
       z-index: 1000;
-      border: 3px solid var(--frame);
-    }
-    .seal-badge:hover {
-      transform: scale(1.18);
-      background: var(--accent);
-      box-shadow: 
-        0 0 20px var(--glow-color),
-        0 0 40px var(--glow-color),
-        0 0 60px var(--glow-color),
-        0 6px 20px var(--shadow);
-      animation: pulse-glow 1.5s infinite alternate;
+      border: 3px solid var(--gold);
+      animation: pulse-glow 2.5s infinite alternate;
     }
 
     @keyframes pulse-glow {
       0% {
         box-shadow: 
-          0 0 20px var(--glow-color),
-          0 0 40px var(--glow-color),
-          0 0 60px var(--glow-color),
-          0 6px 20px var(--shadow);
+          0 0 16px var(--glow-color),
+          0 0 32px var(--glow-color),
+          0 6px 24px var(--shadow);
       }
       100% {
         box-shadow: 
-          0 0 25px var(--glow-color),
-          0 0 50px var(--glow-color),
-          0 0 75px var(--glow-color),
-          0 8px 24px var(--shadow);
+          0 0 24px var(--glow-color),
+          0 0 48px var(--glow-color),
+          0 8px 30px var(--shadow);
       }
     }
 
-    .seal-badge svg {
-      width: 46px;
-      height: 46px;
+    .phoenix-seal:hover {
+      transform: scale(1.2);
+      background: var(--accent);
+      box-shadow: 
+        0 0 28px var(--glow-color),
+        0 0 56px var(--glow-color),
+        0 0 90px var(--glow-color),
+        0 8px 30px var(--shadow);
+      animation: pulse-glow-intense 1.8s infinite alternate;
+    }
+
+    @keyframes pulse-glow-intense {
+      0% {
+        box-shadow: 
+          0 0 28px var(--glow-color),
+          0 0 56px var(--glow-color),
+          0 0 90px var(--glow-color),
+          0 8px 30px var(--shadow);
+      }
+      100% {
+        box-shadow: 
+          0 0 36px var(--glow-color),
+          0 0 72px var(--glow-color),
+          0 0 110px var(--glow-color),
+          0 10px 36px var(--shadow);
+      }
+    }
+
+    .phoenix-seal svg {
+      width: 50px;
+      height: 50px;
+    }
+
+    /* === TOOLTIP: "Vigilant. Discreet. Effective." === */
+    .phoenix-seal {
+      position: relative;
+    }
+    .phoenix-seal::after {
+      content: "Vigilant. Discreet. Effective.";
+      position: absolute;
+      top: 50%;
+      left: -160px;
+      transform: translateY(-50%);
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .3s ease, visibility .3s ease;
+      box-shadow: 0 4px 12px var(--shadow);
+      z-index: 1001;
+      pointer-events: none;
+    }
+    .phoenix-seal::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -8px;
+      transform: translateY(-50%);
+      border: 8px solid transparent;
+      border-left-color: var(--badge-bg);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .3s ease, visibility .3s ease;
+    }
+    .phoenix-seal:hover::after,
+    .phoenix-seal:hover::before {
+      opacity: 1;
+      visibility: visible;
     }
   </style>
 </head>
 <body>
 
-  <!-- === ANIMATED GLOW: Hawaii Seal + JF === -->
-  <div class="seal-badge" role="img" aria-label="Official Hawaii State Seal – Jamey Frazee" title="Jamey Frazee | Hawaii Licensed Professional">
+  <!-- === ALWAYS-PULSING VIGILANT PHOENIX SEAL + TOOLTIP === -->
+  <div class="phoenix-seal" role="img" aria-label="Vigilant Phoenix Seal – Jamey Frazee">
     <svg viewBox="0 0 100 100" aria-hidden="true">
-      <!-- Outer Circle (Seal Border) -->
-      <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="4"/>
+      <!-- Outer Ornate Circle -->
+      <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="3"/>
+      <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
 
-      <!-- Inner Shield -->
-      <path d="M50 18 L74 35 L74 65 L50 82 L26 65 L26 35 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+      <!-- Laurel Wreath Base -->
+      <path d="M20 75 Q30 70 40 75 M60 75 Q70 70 80 75" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M25 72 Q30 68 35 72 M65 72 Q70 68 75 72" fill="none" stroke="currentColor" stroke-width="1.5"/>
 
-      <!-- Puloulou (Royal Staffs) -->
-      <line x1="32" y1="28" x2="32" y2="72" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-      <line x1="68" y1="28" x2="68" y2="72" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-      <circle cx="32" cy="25" r="3.5" fill="currentColor"/>
-      <circle cx="68" cy="25" r="3.5" fill="currentColor"/>
+      <!-- Phoenix Wings -->
+      <path d="M35 55 Q30 45 25 40 Q30 38 35 42 M65 55 Q70 45 75 40 Q70 38 65 42" 
+            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
 
-      <!-- Kamehameha Crown -->
-      <path d="M38 38 Q50 32 62 38 L60 42 Q50 36 40 42 Z" fill="currentColor"/>
+      <!-- Phoenix Body & Tail -->
+      <path d="M50 60 Q48 65 46 70 Q50 75 54 70 Q52 65 50 60" fill="currentColor"/>
+      <path d="M46 68 Q44 72  enfoc42 75 M54 68 Q56 72 58 75" fill="none" stroke="currentColor" stroke-width="2"/>
 
-      <!-- Phoenix (Rising Bird) -->
-      <path d="M50 50 Q45 45 48 40 Q50 38 52 40 Q55 45 50 50 M48 52 Q46 55 48 58 M52 52 Q54 55 52 58" 
-            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <!-- Magnifying Glass Lens (Iris) -->
+      <circle cx="50" cy="45" r="12" fill="none" stroke="var(--gold)" stroke-width="3"/>
+      <circle cx="50" cy="45" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
 
-      <!-- Eight Taros (Leaves at Base) -->
-      <path d="M30 70 Q35 75 40 70 M35 68 Q37 72 39 68 M60 70 Q65 75 70 70 M61 68 Q63 72 65 68" 
-            fill="none" stroke="currentColor" stroke-width="2"/>
+      <!-- All-Seeing Eye (Pupil) -->
+      <circle cx="50" cy="45" r="6" fill="currentColor"/>
+      <circle cx="50" cy="45" r="3" fill="var(--gold)"/>
 
-      <!-- JF Initials – Centered in Shield -->
-      <text x="50" y="58" font-family="Merriweather, Georgia, serif" font-size="20" font-weight="700" 
-            fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="0.5">
+      <!-- JF Initials – Bold in Shield -->
+      <text x="50" y="80" font-family="Merriweather, Georgia, serif" font-size="18" font-weight="700" 
+            fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">
         JF
       </text>
 
-      <!-- Bottom Ribbon (Ulu) -->
-      <path d="M26 72 Q50 78 74 72" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <!-- Ribbon Banner -->
+      <path d="M30 88 Q50 92 70 88 L68 85 Q50 89 32 85 Z" fill="var(--badge-bg)" stroke="currentColor" stroke-width="1.5"/>
+      <text x=" |
+
+50" y="88" font-family="Merriweather, Georgia, serif" font-size="7" fill="currentColor" 
+            text-anchor="middle" dominant-baseline="middle">
+        VIGILANT
+      </text>
     </svg>
   </div>
 
@@ -274,6 +350,7 @@
   <!-- === CREDENTIALS UNDER FORM === -->
   <div class="credentials">
     <p class="guard-license">Registered Security Guard | Hawaii License # GDE-38811</p>
+    <p class="pending-note">(PI License Pending – DCCA Application in Process)</p>
 
     <div class="trust-badge" role="img" aria-label="Confidentiality guarantee">
       <svg class="trust-badge__icon" viewBox="0 0 24 24" aria-hidden="true">
