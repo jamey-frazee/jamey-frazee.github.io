@@ -21,8 +21,8 @@
     :root {
       --bg: #0f172a;
       --text: #e2e8f0;
-      --accent: #f1f5f9;              /* Soft off-white */
-      --frame: #475569;              /* Darker frame */
+      --accent: #f1f5f9;
+      --frame: #475569;
       --badge-bg: #1e293b;
       --badge-text: #f1f5f9;
       --badge-sub: #cbd5e1;
@@ -40,7 +40,8 @@
       font-family: 'Merriweather', Georgia, serif;
       line-height: 1.7;
       text-align: center;
-      padding: 60px 1rem;
+      padding: 60px 1rem 80px;
+      min-height: 100vh;
     }
 
     h1 {
@@ -49,33 +50,26 @@
       letter-spacing: 1.5px;
       margin-bottom: 1.8rem;
       color: var(--accent);
-      line-height: 1.3;
     }
 
     h2 {
-      margin-top: 3rem;
+      margin: 3rem 0 1.5rem;
       color: var(--accent);
       font-weight: 600;
     }
 
     p { margin: 1rem 0; font-size: 1.1rem; }
 
+    /* Subtitle & Tagline */
     .subtitle {
       font-size: 1.1rem;
       color: var(--text);
-      margin-bottom: 0.5rem;
-    }
-    .guard-license {
-      font-size: 0.95rem;
-      color: #94a3b8;
-      font-style: italic;
-      margin-bottom: 1rem;
+      margin-bottom: 0.3rem;
     }
     .tagline {
       font-size: 0.95rem;
       color: #94a3b8;
       font-style: italic;
-      margin-top: -0.5rem;
       margin-bottom: 1.5rem;
     }
 
@@ -87,30 +81,6 @@
       object-position: center 30%;
       border: 4px solid var(--frame);
       box-shadow: 0 4px 12px var(--shadow);
-    }
-
-    .trust-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
-      background: var(--badge-bg);
-      color: var(--badge-text);
-      font-size: .9375rem;
-      font-weight: 600;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px var(--shadow);
-      max-width: fit-content;
-      margin: 2rem auto;
-    }
-    .trust-badge__icon { width: 20px; height: 20px; fill: var(--badge-sub); }
-    .trust-badge__main { display: block; font-size: 1rem; }
-    .trust-badge__sub { display: block; font-size: .75rem; color: var(--badge-sub); margin-top: 2px; }
-    .trust-badge__footnote {
-      font-size: .625rem;
-      color: var(--footnote);
-      font-style: italic;
-      margin-top: 6px;
     }
 
     .contact-form {
@@ -148,6 +118,52 @@
     .contact-form button:hover {
       background: #d1d5db;
     }
+
+    /* === CREDENTIALS BLOCK UNDER FORM === */
+    .credentials {
+      max-width: 500px;
+      margin: 3rem auto 0;
+      padding: 1.5rem;
+      border-top: 1px solid #334155;
+      font-size: 0.95rem;
+    }
+    .credentials p {
+      margin: 0.8rem 0;
+      font-size: inherit;
+    }
+    .credentials .guard-license {
+      color: #94a3b8;
+      font-style: italic;
+    }
+    .credentials .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: .9375rem;
+      font-weight: 600;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px var(--shadow);
+      max-width: fit-content;
+      margin: 1.2rem auto;
+    }
+    .credentials .trust-badge__icon {
+      width: 20px; height: 20px; fill: var(--badge-sub);
+    }
+    .credentials .trust-badge__main {
+      display: block; font-size: 1rem;
+    }
+    .credentials .trust-badge__sub {
+      display: block; font-size: .75rem; color: var(--badge-sub); margin-top: 2px;
+    }
+    .credentials .trust-badge__footnote {
+      font-size: .625rem;
+      color: var(--footnote);
+      font-style: italic;
+      margin-top: 6px;
+    }
   </style>
 </head>
 <body>
@@ -156,22 +172,7 @@
   <h1>Jamey Frazee</h1>
   <img src="headshot.jpg" alt="Jamey Frazee - Private Investigator in Honolulu" class="headshot">
   <p class="subtitle">Licensed Private Investigator | Honolulu, Hawaii</p>
-  <p class="guard-license">Registered Security Guard | Hawaii License # GDE-38811</p>
   <p class="tagline">Serving All Islands</p>
-
-  <!-- Trust Badge – ONLY ONE -->
-  <div class="trust-badge" role="img" aria-label="Confidentiality guarantee">
-    <svg class="trust-badge__icon" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.5 16.5l-4-4 1.41-1.41L11 15.67l5.59-5.59L18 11.5l-7 7z"/>
-    </svg>
-    <div>
-      <span class="trust-badge__main">Confidentiality Enforced by Law & Protocol</span>
-      <span class="trust-badge__sub">Licensed • Encrypted • Zero Retention Post-Closure</span>
-    </div>
-  </div>
-  <p class="trust-badge__footnote">
-    *Subject to lawful court order (HRS §626-1). Full policy available on request.
-  </p>
 
   <!-- Contact Form -->
   <h2>Contact Me</h2>
@@ -181,6 +182,24 @@
     <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
     <button type="submit">Send Message</button>
   </form>
+
+  <!-- === CREDENTIALS UNDER FORM === -->
+  <div class="credentials">
+    <p class="guard-license">Registered Security Guard | Hawaii License # GDE-38811</p>
+
+    <div class="trust-badge" role="img" aria-label="Confidentiality guarantee">
+      <svg class="trust-badge__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.5 16.5l-4-4 1.41-1.41L11 15.67l5.59-5.59L18 11.5l-7 7z"/>
+      </svg>
+      <div>
+        <span class="trust-badge__main">Confidentiality Enforced by Law & Protocol</span>
+        <span class="trust-badge__sub">Licensed • Encrypted • Zero Retention Post-Closure</span>
+      </div>
+    </div>
+    <p class="trust-badge__footnote">
+      *Subject to lawful court order (HRS §626-1). Full policy available on request.
+    </p>
+  </div>
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9N2K8L5Q7X"></script>
