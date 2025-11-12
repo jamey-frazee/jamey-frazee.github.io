@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jameyfrazee.com/sitemap.xml
