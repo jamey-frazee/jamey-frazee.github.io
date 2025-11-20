@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Secure Client Portal – Jamey Frazee Investigations</title>
   <style>
-    :root { --bg: #0f172a; --text: #e2e8f0; --accent: #f1f5f9; --gold: #d4af37; --card: #1e293b; }
+    :root { --bg: #0f172a; --text:e2e8f0; --accent: #f1f5f9; --gold: #d4af37; --card: #1e293b; }
     body { background: var(--bg); color: var(--text); font-family: 'Merriweather', Georgia, serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
     .card { background: var(--card); padding: 50px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); width: 100%; max-width: 420px; text-align: center; }
     h1 { color: var(--accent); margin-bottom: 8px; }
@@ -15,27 +15,62 @@
     button { width: 100%; padding: 16px; background: var(--gold); color: #0f172a; font-weight: bold; font-size: 17px; border: none; border-radius: 8px; cursor: pointer; margin-top: 10px; }
     button:hover { background: #e6c04a; }
     .badge { position: fixed; top: 20px; right: 20px; background: rgba(34,197,94,0.15); border: 1px solid #22c55e; color: #22c55e; padding: 10px 16px; border-radius: 8px; font-weight: bold; }
-    .note { margin-top: 30px; font-size: 0.9rem; color: #64748b; }
+    #msg { margin-top: 20px; min-height: 24px; }
   </style>
 </head>
 <body>
-
   <div class="badge">Secure & Encrypted</div>
-
   <div class="card">
     <h1>Client Portal</h1>
     <p>Jamey Frazee Investigations</p>
-
-    <input type="email" placeholder="Email or username" required>
-    <input type="password" placeholder="Password" required>
-
-    <button>Secure Sign In</button>
-
-    <div class="note">
-      Portal is live.<br>
-      Full encrypted login + private documents active within 24 hours.
-    </div>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button id="loginBtn">Secure Sign In</button>
+    <div id="msg"></div>
   </div>
 
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyD0m6KLEVnflqV9b_mbZ22gho6-g5wHU4w",
+      authDomain: "jamey-frazee-client-portal.firebaseapp.com",
+      projectId: "jamey-frazee-client-portal",
+      storageBucket: "jamey-frazee-client-portal.firebasestorage.app",
+      messagingSenderId: "693440666268",
+      appId: "1:693440666268:web:0d0bf260a94d8afefe2b59"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    document.getElementById('loginBtn').onclick = () => {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const msg = document.getElementById('msg');
+
+      if (!email || !password) { msg.style.color = '#f87171'; msg.textContent = 'Enter both fields'; return; }
+
+      msg.textContent = 'Signing in…';
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          msg.style.color = '#22c55e';
+          msg.textContent = 'Success! Redirecting…';
+          setTimeout(() => window.location.href = 'dashboard.html', 800);
+        })
+        .catch(err => {
+          msg.style.color = '#f87171';
+          msg.textContent = err.message;
+        });
+    };
+
+    auth.onAuthStateChanged(user => {
+      if (user && location.pathname.includes('index.html')) {
+        window.location.href = 'dashboard.html';
+      }
+    });
+  </script>
 </body>
 </html>
